@@ -13,9 +13,16 @@
 
 <div id="brdheader" class="block">
 	<div class="box">
-		<div id="brdtitle" class="inbox">
+		<div id="brdtitle" class="inbox" style="height: 128px; position: relative;">
+			<br>
 			<pun_title>
+			<br>
 			<pun_desc>
+
+<div style="height: 132px; overflow: hidden; position: absolute; right: 0; top: -10px;">
+<iframe id="player" style="height: 370px; position: relative; top: -116px; width:550px;" type="text/html" src="http://www.youtube.com/embed/njlDZ-taefU?enablejsapi=1&autoplay=1&origin=http://www.amos2.fr" frameborder="0"></iframe>
+</div>
+
 		</div>
 		<pun_navlinks>
 		<pun_status>
