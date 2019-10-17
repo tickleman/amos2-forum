@@ -11,3 +11,6 @@
 /img/avatars/*.jpg
 /img/avatars/*.gif
 /config.php
+
+# My IDE
+/.idea
