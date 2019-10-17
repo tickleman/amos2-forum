@@ -1,2 +1,2 @@
-rsync -aP --delete --exclude=/.git --exclude=/.idea amos2-forum/ root@next.pillot.fr:/home/amos2/www/forum/
+rsync -aP --delete --exclude=/.git --exclude=/.idea --exclude=/cache --exclude=/mep ./ root@next.pillot.fr:/home/amos2/www/forum/
 rsh root@next.pillot.fr chown -R www-data.www-data /home/amos2/www/forum
