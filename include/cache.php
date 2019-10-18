@@ -22,8 +22,14 @@ function generate_config_cache()
 	$result = $db->query('SELECT * FROM '.$db->prefix.'config', true) or error('Unable to fetch forum config', __FILE__, __LINE__, $db->error());
 
 	$output = array();
-	while ($cur_config_item = $db->fetch_row($result))
+	while ($cur_config_item = $db->fetch_row($result)) {
+		if ($cur_config_item[0] === 'o_base_url') {
+			global $language_filter;
+			$language = ($language_filter === '%') ? 'all' : $language_filter;
+			$cur_config_item[1] = $cur_config_item[1] . '/' . $language;
+		}
 		$output[$cur_config_item[0]] = $cur_config_item[1];
+	}
 
 	// Output config as PHP code
 	$content = '<?php'."\n\n".'define(\'PUN_CONFIG_LOADED\', 1);'."\n\n".'$pun_config = '.var_export($output, true).';'."\n\n".'?>';
@@ -86,7 +92,8 @@ function generate_quickjump_cache($group_id = false)
 
 		if ($read_board == '1')
 		{
-			$result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name, f.redirect_url FROM '.$db->prefix.'categories AS c INNER JOIN '.$db->prefix.'forums AS f ON c.id=f.cat_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$group_id.') WHERE fp.read_forum IS NULL OR fp.read_forum=1 ORDER BY c.disp_position, c.id, f.disp_position') or error('Unable to fetch category/forum list', __FILE__, __LINE__, $db->error());
+			global $language_filter;
+			$result = $db->query('SELECT c.id AS cid, c.cat_name, f.id AS fid, f.forum_name, f.redirect_url FROM '.$db->prefix.'categories AS c INNER JOIN '.$db->prefix.'forums AS f ON c.id=f.cat_id LEFT JOIN '.$db->prefix.'forum_perms AS fp ON (fp.forum_id=f.id AND fp.group_id='.$group_id.') WHERE c.language LIKE "'.$language_filter.'" AND (fp.read_forum IS NULL OR fp.read_forum=1) ORDER BY c.disp_position, c.id, f.disp_position') or error('Unable to fetch category/forum list', __FILE__, __LINE__, $db->error());
 
 			if ($db->has_rows($result))
 			{
@@ -112,7 +119,9 @@ function generate_quickjump_cache($group_id = false)
 			}
 		}
 
-		fluxbb_write_cache_file('cache_quickjump_'.$group_id.'.php', $output);
+		global $language_filter;
+		$file_filter = ($language_filter === '%') ? '' : ('_' . $language_filter);
+		fluxbb_write_cache_file('cache_quickjump_'.$group_id.$file_filter.'.php', $output);
 	}
 }
 

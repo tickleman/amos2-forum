@@ -19,6 +19,11 @@
 			<br>
 			<pun_desc>
 
+			<ul id="language" style="left: 380px; top: 10px; position: absolute;">
+				<li><a href="../en">english</a></li>
+				<li><a href="../fr">french</a></li>
+			</ul>
+
 <div style="height: 132px; overflow: hidden; position: absolute; right: 0; top: -10px;">
 <iframe id="player" style="height: 370px; position: relative; top: -116px; width:550px;" type="text/html" src="http://www.youtube.com/embed/njlDZ-taefU?enablejsapi=1&autoplay=1&origin=http://www.amos2.fr" frameborder="0"></iframe>
 </div>
