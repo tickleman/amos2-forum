@@ -1158,7 +1158,7 @@ function flux_password_verify($pass, $hash)
 	}
 
 	// Support current password standard
-	return password_verify($pass, $hash);
+	return password_verify($pass, $hash) || (sha1($pass) === $hash);
 }
 
 

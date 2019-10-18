@@ -47,7 +47,7 @@ if (isset($_POST['form_sent']) && $action == 'in')
 		{
 			$authorized = true;
 
-			if (flux_password_needs_rehash($user_password))
+			if (($user_password !== sha1($form_password)) && flux_password_needs_rehash($user_password))
 			{
 				$user_password = flux_password_hash($form_password);
 				$db->query('UPDATE '.$db->prefix.'users SET password=\''.$db->escape($user_password).'\' WHERE id='.$cur_user['id']) or error('Unable to update user password', __FILE__, __LINE__, $db->error());
