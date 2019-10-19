@@ -1070,6 +1070,7 @@ function confirm_referrer($scripts, $error_msg = false)
 		$valid_host = $valid['host'];
 		$valid_paths[] = str_replace('//', '/', $valid['path']);
 	}
+	$referrer['path'] = str_replace('//', '/', $referrer['path']);
 
 	// Check the host and path match. Ignore the scheme, port, etc.
 	if ($referrer['host'] != $valid_host || !in_array($referrer['path'], $valid_paths, true))
@@ -1121,6 +1122,7 @@ function validate_redirect($redirect_url, $fallback_url)
 function flux_password_hash($pass)
 {
 	global $password_hash_cost;
+	if (!$password_hash_cost) $password_hash_cost = 8;
 
 	return password_hash($pass, PASSWORD_DEFAULT, array('cost' => $password_hash_cost));
 }
