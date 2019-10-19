@@ -23,9 +23,9 @@
 
 			<img src="img/amos2.png" style="height: 118px; right: 0; position: absolute; top: -12px;">
 
-			<ul id="language" style="left: 370px; top: 10px; position: absolute;">
-				<li><a href="../fr">français</a></li>
+			<ul id="language" style="display: flex; left: 50px; top: -20px; position: absolute;">
 				<li><a href="../en">english</a></li>
+				<li style="margin-left: 16px;"><a href="../fr">français</a></li>
 			</ul>
 
 		</div>
