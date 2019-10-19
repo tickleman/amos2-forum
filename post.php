@@ -557,7 +557,7 @@ $crumbs = generate_crumbs(array_filter(array(
 	$action,
 )));
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $action);
+$page_title = array(board_title(), $action);
 $required_fields = array('req_email' => $lang_common['Email'], 'req_subject' => $lang_common['Subject'], 'req_message' => $lang_common['Message']);
 $focus_element = array('post');
 

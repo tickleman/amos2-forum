@@ -84,7 +84,7 @@ else if (isset($_POST['remove']))
 	redirect('admin_censoring.php',  $lang_admin_censoring['Word removed redirect']);
 }
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Censoring']);
+$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Censoring']);
 $focus_element = array('censoring', 'new_search_for');
 define('PUN_ACTIVE_PAGE', 'admin');
 require PUN_ROOT.'header.php';

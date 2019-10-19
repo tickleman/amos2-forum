@@ -92,7 +92,7 @@ if (isset($_POST['form_sent']))
 	// Make sure base_url doesn't end with a slash
 	if (substr($form['base_url'], -1) == '/')
 		$form['base_url'] = substr($form['base_url'], 0, -1);
-		
+
 	// Convert IDN to Punycode if needed
 	if (preg_match('/[^\x00-\x7F]/', $form['base_url']))
 	{
@@ -221,7 +221,7 @@ if (isset($_POST['form_sent']))
 	redirect('admin_options.php', $lang_admin_options['Options updated redirect']);
 }
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Options']);
+$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Options']);
 define('PUN_ACTIVE_PAGE', 'admin');
 require PUN_ROOT.'header.php';
 
@@ -242,7 +242,7 @@ generate_admin_menu('options');
 								<tr>
 									<th scope="row"><?php echo $lang_admin_options['Board title label'] ?></th>
 									<td>
-										<input type="text" name="form[board_title]" size="50" maxlength="255" value="<?php echo pun_htmlspecialchars($pun_config['o_board_title']) ?>" />
+										<input type="text" name="form[board_title]" size="50" maxlength="255" value="<?php echo board_title() ?>" />
 										<span><?php echo $lang_admin_options['Board title help'] ?></span>
 									</td>
 								</tr>
@@ -779,7 +779,7 @@ generate_admin_menu('options');
 										<label class="conl"><input type="radio" name="form[regs_allow]" value="1"<?php if ($pun_config['o_regs_allow'] == '1') echo ' checked="checked"' ?> />&#160;<strong><?php echo $lang_admin_common['Yes'] ?></strong></label>
 										<label class="conl"><input type="radio" name="form[regs_allow]" value="0"<?php if ($pun_config['o_regs_allow'] == '0') echo ' checked="checked"' ?> />&#160;<strong><?php echo $lang_admin_common['No'] ?></strong></label>
 										<span class="clearb"><?php echo $lang_admin_options['Allow new help'] ?></span>
-									</td> 
+									</td>
 								</tr>
 								<tr>
 									<th scope="row"><?php echo $lang_admin_options['Verify label'] ?></th>

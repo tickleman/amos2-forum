@@ -117,7 +117,7 @@ $crumbs = generate_crumbs(array(
 	array($cur_forum['forum_name'], 'viewforum.php?id='.$id),
 ));
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), pun_htmlspecialchars($cur_forum['forum_name']));
+$page_title = array(board_title(), pun_htmlspecialchars($cur_forum['forum_name']));
 define('PUN_ALLOW_INDEX', 1);
 define('PUN_ACTIVE_PAGE', 'index');
 require PUN_ROOT.'header.php';

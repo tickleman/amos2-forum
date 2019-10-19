@@ -46,7 +46,7 @@ if (isset($_POST['form_sent']))
 	redirect('admin_permissions.php', $lang_admin_permissions['Perms updated redirect']);
 }
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Permissions']);
+$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Permissions']);
 define('PUN_ACTIVE_PAGE', 'admin');
 require PUN_ROOT.'header.php';
 

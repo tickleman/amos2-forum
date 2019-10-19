@@ -46,7 +46,7 @@ if (isset($_GET['ip_stats']))
 		$lang_admin_users['Results head'],
 	));
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Users'], $lang_admin_users['Results head']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Users'], $lang_admin_users['Results head']);
 	define('PUN_ACTIVE_PAGE', 'admin');
 	require PUN_ROOT.'header.php';
 
@@ -145,7 +145,7 @@ if (isset($_GET['show_users']))
 		$lang_admin_users['Results head'],
 	));
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Users'], $lang_admin_users['Results head']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Users'], $lang_admin_users['Results head']);
 	define('PUN_ACTIVE_PAGE', 'admin');
 	require PUN_ROOT.'header.php';
 
@@ -340,7 +340,7 @@ else if (isset($_POST['move_users']) || isset($_POST['move_users_comply']))
 		redirect('admin_users.php', $lang_admin_users['Users move redirect']);
 	}
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Users'], $lang_admin_users['Move users']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Users'], $lang_admin_users['Move users']);
 	define('PUN_ACTIVE_PAGE', 'admin');
 	require PUN_ROOT.'header.php';
 
@@ -496,7 +496,7 @@ else if (isset($_POST['delete_users']) || isset($_POST['delete_users_comply']))
 		redirect('admin_users.php', $lang_admin_users['Users delete redirect']);
 	}
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Users'], $lang_admin_users['Delete users']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Users'], $lang_admin_users['Delete users']);
 	define('PUN_ACTIVE_PAGE', 'admin');
 	require PUN_ROOT.'header.php';
 
@@ -621,7 +621,7 @@ else if (isset($_POST['ban_users']) || isset($_POST['ban_users_comply']))
 		redirect('admin_users.php', $lang_admin_users['Users banned redirect']);
 	}
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Bans']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Bans']);
 	$focus_element = array('bans2', 'ban_message');
 	define('PUN_ACTIVE_PAGE', 'admin');
 	require PUN_ROOT.'header.php';
@@ -814,7 +814,7 @@ else if (isset($_GET['find_user']))
 		$lang_admin_users['Results head'],
 	));
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Users'], $lang_admin_users['Results head']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Users'], $lang_admin_users['Results head']);
 	$page_head = array('js' => '<script type="text/javascript" src="common.js"></script>');
 	define('PUN_ACTIVE_PAGE', 'admin');
 	require PUN_ROOT.'header.php';
@@ -910,7 +910,7 @@ else if (isset($_GET['find_user']))
 
 else
 {
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Users']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Users']);
 	$focus_element = array('find_user', 'form[username]');
 	define('PUN_ACTIVE_PAGE', 'admin');
 	require PUN_ROOT.'header.php';

@@ -119,7 +119,7 @@ if ($action == 'change_pass')
 		redirect('profile.php?section=essentials&amp;id='.$id, $lang_profile['Pass updated redirect']);
 	}
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Change pass']);
+	$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Change pass']);
 	$required_fields = array('req_old_password' => $lang_profile['Old pass'], 'req_new_password1' => $lang_profile['New pass'], 'req_new_password2' => $lang_profile['Confirm new pass']);
 	$focus_element = array('change_pass', ((!$pun_user['is_admmod']) ? 'req_old_password' : 'req_new_password1'));
 	define('PUN_ACTIVE_PAGE', 'profile');
@@ -281,7 +281,7 @@ else if ($action == 'change_email')
 		message($lang_profile['Activate email sent'].' <a href="mailto:'.pun_htmlspecialchars($pun_config['o_admin_email']).'">'.pun_htmlspecialchars($pun_config['o_admin_email']).'</a>.', true);
 	}
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Change email']);
+	$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Change email']);
 	$required_fields = array('req_new_email' => $lang_profile['New email'], 'req_password' => $lang_common['Password']);
 	$focus_element = array('change_email', 'req_new_email');
 	define('PUN_ACTIVE_PAGE', 'profile');
@@ -410,7 +410,7 @@ else if ($action == 'upload_avatar' || $action == 'upload_avatar2')
 		redirect('profile.php?section=personality&amp;id='.$id, $lang_profile['Avatar upload redirect']);
 	}
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Upload avatar']);
+	$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Upload avatar']);
 	$required_fields = array('req_file' => $lang_profile['File']);
 	$focus_element = array('upload_avatar', 'req_file');
 	define('PUN_ACTIVE_PAGE', 'profile');
@@ -684,7 +684,7 @@ else if (isset($_POST['delete_user']) || isset($_POST['delete_user_comply']))
 		redirect('index.php', $lang_profile['User delete redirect']);
 	}
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Confirm delete user']);
+	$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Confirm delete user']);
 	define('PUN_ACTIVE_PAGE', 'profile');
 	require PUN_ROOT.'header.php';
 
@@ -1187,7 +1187,7 @@ if ($pun_user['id'] != $id &&																	// If we aren't the user (i.e. edi
 	$user_activity[] = '<dt>'.$lang_common['Registered'].'</dt>';
 	$user_activity[] = '<dd>'.format_time($user['registered'], true).'</dd>';
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), sprintf($lang_profile['Users profile'], pun_htmlspecialchars($user['username'])));
+	$page_title = array(board_title(), sprintf($lang_profile['Users profile'], pun_htmlspecialchars($user['username'])));
 	define('PUN_ALLOW_INDEX', 1);
 	define('PUN_ACTIVE_PAGE', 'index');
 	require PUN_ROOT.'header.php';
@@ -1292,7 +1292,7 @@ else
 		$posts_field .= (!empty($posts_actions) ? '<p class="actions">'.implode(' - ', $posts_actions).'</p>' : '')."\n";
 
 
-		$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Section essentials']);
+		$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Section essentials']);
 		$required_fields = array('req_username' => $lang_common['Username'], 'req_email' => $lang_common['Email']);
 		define('PUN_ACTIVE_PAGE', 'profile');
 		require PUN_ROOT.'header.php';
@@ -1466,7 +1466,7 @@ else
 		if ($pun_user['g_set_title'] == '1')
 			$title_field = '<label>'.$lang_common['Title'].' <em>('.$lang_profile['Leave blank'].')</em><br /><input type="text" name="title" value="'.pun_htmlspecialchars($user['title']).'" size="30" maxlength="50" /><br /></label>'."\n";
 
-		$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Section personal']);
+		$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Section personal']);
 		define('PUN_ACTIVE_PAGE', 'profile');
 		require PUN_ROOT.'header.php';
 
@@ -1500,7 +1500,7 @@ else
 	else if ($section == 'messaging')
 	{
 
-		$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Section messaging']);
+		$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Section messaging']);
 		define('PUN_ACTIVE_PAGE', 'profile');
 		require PUN_ROOT.'header.php';
 
@@ -1548,7 +1548,7 @@ else
 		else
 			$signature_preview = '<p>'.$lang_profile['No sig'].'</p>'."\n";
 
-		$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Section personality']);
+		$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Section personality']);
 		define('PUN_ACTIVE_PAGE', 'profile');
 		require PUN_ROOT.'header.php';
 
@@ -1599,7 +1599,7 @@ else
 	}
 	else if ($section == 'display')
 	{
-		$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Section display']);
+		$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Section display']);
 		define('PUN_ACTIVE_PAGE', 'profile');
 		require PUN_ROOT.'header.php';
 
@@ -1686,7 +1686,7 @@ else
 	}
 	else if ($section == 'privacy')
 	{
-		$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Section privacy']);
+		$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Section privacy']);
 		define('PUN_ACTIVE_PAGE', 'profile');
 		require PUN_ROOT.'header.php';
 
@@ -1735,7 +1735,7 @@ else
 		if (!$pun_user['is_admmod'] || ($pun_user['g_moderator'] == '1' && $pun_user['g_mod_ban_users'] == '0'))
 			message($lang_common['Bad request'], false, '403 Forbidden');
 
-		$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Profile'], $lang_profile['Section admin']);
+		$page_title = array(board_title(), $lang_common['Profile'], $lang_profile['Section admin']);
 
 		flux_hook('profile_admin_before_header');
 

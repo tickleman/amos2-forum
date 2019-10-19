@@ -50,7 +50,7 @@ else if ($action == 'remove_install_file')
 
 $install_file_exists = is_file(PUN_ROOT.'install.php');
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Index']);
+$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Index']);
 define('PUN_ACTIVE_PAGE', 'admin');
 require PUN_ROOT.'header.php';
 

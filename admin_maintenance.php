@@ -60,7 +60,7 @@ if ($action == 'rebuild')
 		}
 	}
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_maintenance['Rebuilding search index']);
+	$page_title = array(board_title(), $lang_admin_maintenance['Rebuilding search index']);
 
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -198,7 +198,7 @@ if ($action == 'prune')
 		message(sprintf($lang_admin_maintenance['No old topics message'], $prune_days));
 
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Prune']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Prune']);
 	define('PUN_ACTIVE_PAGE', 'admin');
 	require PUN_ROOT.'header.php';
 
@@ -240,7 +240,7 @@ $result = $db->query('SELECT id FROM '.$db->prefix.'posts ORDER BY id ASC LIMIT 
 if ($db->has_rows($result))
 	$first_id = $db->result($result);
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Maintenance']);
+$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Maintenance']);
 define('PUN_ACTIVE_PAGE', 'admin');
 require PUN_ROOT.'header.php';
 

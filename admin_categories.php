@@ -83,7 +83,7 @@ else if (isset($_POST['del_cat']) || isset($_POST['del_cat_comply']))
 		$result = $db->query('SELECT cat_name FROM '.$db->prefix.'categories WHERE id='.$cat_to_delete) or error('Unable to fetch category info', __FILE__, __LINE__, $db->error());
 		$cat_name = $db->result($result);
 
-		$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Categories']);
+		$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Categories']);
 		define('PUN_ACTIVE_PAGE', 'admin');
 		require PUN_ROOT.'header.php';
 
@@ -153,7 +153,7 @@ $result = $db->query('SELECT id, cat_name, disp_position FROM '.$db->prefix.'cat
 while ($cur_cat = $db->fetch_assoc($result))
 	$cat_list[] = $cur_cat;
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Categories']);
+$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Categories']);
 define('PUN_ACTIVE_PAGE', 'admin');
 require PUN_ROOT.'header.php';
 

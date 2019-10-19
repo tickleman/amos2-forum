@@ -86,7 +86,7 @@ else if (isset($_GET['del_forum']))
 		$result = $db->query('SELECT forum_name FROM '.$db->prefix.'forums WHERE id='.$forum_id) or error('Unable to fetch forum info', __FILE__, __LINE__, $db->error());
 		$forum_name = pun_htmlspecialchars($db->result($result));
 
-		$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Forums']);
+		$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Forums']);
 		define('PUN_ACTIVE_PAGE', 'admin');
 		require PUN_ROOT.'header.php';
 
@@ -227,7 +227,7 @@ else if (isset($_GET['edit_forum']))
 
 	$cur_forum = $db->fetch_assoc($result);
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Forums']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Forums']);
 	define('PUN_ACTIVE_PAGE', 'admin');
 	require PUN_ROOT.'header.php';
 
@@ -358,7 +358,7 @@ else if (isset($_GET['edit_forum']))
 	require PUN_ROOT.'footer.php';
 }
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['Forums']);
+$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['Forums']);
 define('PUN_ACTIVE_PAGE', 'admin');
 require PUN_ROOT.'header.php';
 

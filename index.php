@@ -62,7 +62,7 @@ $forum_actions = array();
 if (!$pun_user['is_guest'])
 	$forum_actions[] = '<a href="misc.php?action=markread&amp;csrf_token='.pun_csrf_token().'">'.$lang_common['Mark all as read'].'</a>';
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']));
+$page_title = array(board_title());
 define('PUN_ALLOW_INDEX', 1);
 define('PUN_ACTIVE_PAGE', 'index');
 require PUN_ROOT.'header.php';

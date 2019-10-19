@@ -7,6 +7,23 @@
  */
 
 
+function board_title()
+{
+	global $language_filter;
+	global $pun_config;
+	$pun_title = pun_htmlspecialchars($pun_config['o_board_title']);
+	if (strpos($pun_title, 'en:') !== false) {
+		switch ($language_filter) {
+			case 'fr': $i = strpos($pun_title, 'fr:'); break;
+			default:   $i = strpos($pun_title, 'en:');
+		}
+		if ($i === false) $i = strpos($pun_title, 'en:');
+		$j = strpos($pun_title, '|', $i);
+		if ($j === false) $j = strlen($pun_title);
+		$pun_title = substr($pun_title, $i + 3, $j - $i - 3);
+	}
+	return $pun_title;
+}
 
 //
 // Cookie stuff!
@@ -936,7 +953,7 @@ function message($message, $no_back_link = false, $http_status = null)
 
 	if (!defined('PUN_HEADER'))
 	{
-		$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Info']);
+		$page_title = array(board_title(), $lang_common['Info']);
 		define('PUN_ACTIVE_PAGE', 'index');
 		require PUN_ROOT.'header.php';
 	}
@@ -1415,7 +1432,7 @@ function maintenance_message()
 	// START SUBST - <pun_head>
 	ob_start();
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Maintenance']);
+	$page_title = array(board_title(), $lang_common['Maintenance']);
 
 ?>
 <title><?php echo generate_page_title($page_title) ?></title>
@@ -1540,7 +1557,7 @@ function redirect($destination_url, $message)
 	// START SUBST - <pun_head>
 	ob_start();
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_common['Redirecting']);
+	$page_title = array(board_title(), $lang_common['Redirecting']);
 
 ?>
 <meta http-equiv="refresh" content="<?php echo $pun_config['o_redirect_delay'] ?>;URL=<?php echo $destination_url ?>" />
@@ -1645,7 +1662,7 @@ function error($message, $file = null, $line = null, $db_error = false)
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?php $page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), 'Error') ?>
+<?php $page_title = array(board_title(), 'Error') ?>
 <title><?php echo generate_page_title($page_title) ?></title>
 <style type="text/css">
 <!--

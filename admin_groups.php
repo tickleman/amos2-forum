@@ -49,7 +49,7 @@ if (isset($_POST['add_group']) || isset($_GET['edit_group']))
 	}
 
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['User groups']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['User groups']);
 	$required_fields = array('req_title' => $lang_admin_groups['Group title label']);
 	$focus_element = array('groups2', 'req_title');
 	define('PUN_ACTIVE_PAGE', 'admin');
@@ -455,7 +455,7 @@ else if (isset($_GET['del_group']))
 			$result = $db->query('SELECT g_title FROM '.$db->prefix.'groups WHERE g_id='.$group_id) or error('Unable to fetch group title', __FILE__, __LINE__, $db->error());
 			$group_title = $db->result($result);
 
-			$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['User groups']);
+			$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['User groups']);
 			define('PUN_ACTIVE_PAGE', 'admin');
 			require PUN_ROOT.'header.php';
 
@@ -490,7 +490,7 @@ else if (isset($_GET['del_group']))
 
 	list($group_title, $group_members) = $db->fetch_row($result);
 
-	$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['User groups']);
+	$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['User groups']);
 	define('PUN_ACTIVE_PAGE', 'admin');
 	require PUN_ROOT.'header.php';
 
@@ -538,7 +538,7 @@ else if (isset($_GET['del_group']))
 }
 
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_admin_common['Admin'], $lang_admin_common['User groups']);
+$page_title = array(board_title(), $lang_admin_common['Admin'], $lang_admin_common['User groups']);
 define('PUN_ACTIVE_PAGE', 'admin');
 require PUN_ROOT.'header.php';
 

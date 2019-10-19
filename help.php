@@ -21,7 +21,7 @@ if ($pun_user['g_read_board'] == '0')
 require PUN_ROOT.'lang/'.$pun_user['language'].'/help.php';
 
 
-$page_title = array(pun_htmlspecialchars($pun_config['o_board_title']), $lang_help['Help']);
+$page_title = array(board_title(), $lang_help['Help']);
 define('PUN_ACTIVE_PAGE', 'help');
 require PUN_ROOT.'header.php';
 
@@ -53,7 +53,7 @@ require PUN_ROOT.'header.php';
 <div class="box">
 	<div class="inbox">
 		<p><?php echo $lang_help['Links info'] ?></p>
-		<p><a name="url"></a><code class="code">[url=<?php echo pun_htmlspecialchars(get_base_url(true).'/') ?>]<?php echo pun_htmlspecialchars($pun_config['o_board_title']) ?>[/url]</code> <?php echo $lang_help['produces'] ?> <samp><a href="<?php echo pun_htmlspecialchars(get_base_url(true).'/') ?>"><?php echo pun_htmlspecialchars($pun_config['o_board_title']) ?></a></samp></p>
+		<p><a name="url"></a><code class="code">[url=<?php echo pun_htmlspecialchars(get_base_url(true).'/') ?>]<?php echo board_title() ?>[/url]</code> <?php echo $lang_help['produces'] ?> <samp><a href="<?php echo pun_htmlspecialchars(get_base_url(true).'/') ?>"><?php echo board_title() ?></a></samp></p>
 		<p><code class="code">[url]<?php echo pun_htmlspecialchars(get_base_url(true).'/') ?>[/url]</code> <?php echo $lang_help['produces'] ?> <samp><a href="<?php echo pun_htmlspecialchars(get_base_url(true).'/') ?>"><?php echo pun_htmlspecialchars(get_base_url(true).'/') ?></a></samp></p>
 		<p><code class="code">[url=/help.php]<?php echo $lang_help['This help page'] ?>[/url]</code> <?php echo $lang_help['produces'] ?> <samp><a href="<?php echo pun_htmlspecialchars(get_base_url(true).'/help.php') ?>"><?php echo $lang_help['This help page'] ?></a></samp></p>
 		<p><code class="code">[email]myname@example.com[/email]</code> <?php echo $lang_help['produces'] ?> <samp><a href="mailto:myname@example.com">myname@example.com</a></samp></p>

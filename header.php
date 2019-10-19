@@ -190,17 +190,7 @@ $tpl_main = str_replace('{$country}', $lang_file, $tpl_main);
 
 
 // START SUBST - <pun_title>
-$pun_title = pun_htmlspecialchars($pun_config['o_board_title']);
-if (strpos($pun_title, 'en:') !== false) {
-	switch ($language_filter) {
-		case 'fr': $i = strpos($pun_title, 'fr:'); break;
-		default:   $i = strpos($pun_title, 'en:');
-	}
-	if ($i === false) $i = strpos($pun_title, 'en:');
-	$j = strpos($pun_title, '|', $i);
-	if ($j === false) $j = strlen($pun_title);
-	$pun_title = substr($pun_title, $i + 3, $j - $i - 3);
-}
+$pun_title = board_title();
 $tpl_main = str_replace('<pun_title>', '<h1><a href="index.php">'.$pun_title.'</a></h1>', $tpl_main);
 // END SUBST - <pun_title>
 
