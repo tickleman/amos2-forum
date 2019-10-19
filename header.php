@@ -177,10 +177,6 @@ $tpl_main = str_replace('<pun_page>', htmlspecialchars(basename($_SERVER['SCRIPT
 // END SUBST - <pun_page>
 
 
-// START SUBST - <pun_title>
-$tpl_main = str_replace('<pun_title>', '<h1><a href="index.php">'.pun_htmlspecialchars($pun_config['o_board_title']).'</a></h1>', $tpl_main);
-// END SUBST - <pun_title>
-
 // START SUBST - <pun_language>
 global $language_filter;
 switch ($language_filter) {
@@ -192,8 +188,36 @@ switch ($language_filter) {
 $tpl_main = str_replace('{$country}', $lang_file, $tpl_main);
 // END SUBST - <pun_language>
 
+
+// START SUBST - <pun_title>
+$pun_title = pun_htmlspecialchars($pun_config['o_board_title']);
+if (strpos($pun_title, 'en:') !== false) {
+	switch ($language_filter) {
+		case 'fr': $i = strpos($pun_title, 'fr:'); break;
+		default:   $i = strpos($pun_title, 'en:');
+	}
+	if ($i === false) $i = strpos($pun_title, 'en:');
+	$j = strpos($pun_title, '|', $i);
+	if ($j === false) $j = strlen($pun_title);
+	$pun_title = substr($pun_title, $i + 3, $j - $i - 3);
+}
+$tpl_main = str_replace('<pun_title>', '<h1><a href="index.php">'.$pun_title.'</a></h1>', $tpl_main);
+// END SUBST - <pun_title>
+
+
 // START SUBST - <pun_desc>
-$tpl_main = str_replace('<pun_desc>', '<div id="brddesc">'.$pun_config['o_board_desc'].'</div>', $tpl_main);
+$pun_desc = $pun_config['o_board_desc'];
+if (strpos($pun_desc, 'en:') !== false) {
+	switch ($language_filter) {
+		case 'fr': $i = strpos($pun_desc, 'fr:'); break;
+		default:   $i = strpos($pun_desc, 'en:');
+	}
+	if ($i === false) $i = strpos($pun_desc, 'en:');
+	$j = strpos($pun_desc, "\n", $i);
+	if ($j === false) $j = strlen($pun_desc);
+	$pun_desc = substr($pun_desc, $i + 3, $j - $i - 3);
+}
+$tpl_main = str_replace('<pun_desc>', '<div id="brddesc">'.$pun_desc.'</div>', $tpl_main);
 // END SUBST - <pun_desc>
 
 
