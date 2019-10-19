@@ -17,14 +17,21 @@ if (!defined('PUN'))
 function generate_config_cache()
 {
 	global $db;
+	global $language_filter;
 
 	// Get the forum config from the DB
 	$result = $db->query('SELECT * FROM '.$db->prefix.'config', true) or error('Unable to fetch forum config', __FILE__, __LINE__, $db->error());
 
 	$output = array();
 	while ($cur_config_item = $db->fetch_row($result)) {
+		if (($cur_config_item[0] === 'o_default_lang') && ($language_filter !== '%')) {
+			switch ($language_filter) {
+				case 'fr': $language = 'French'; break;
+				default:   $language = 'English';
+			}
+			$cur_config_item[1] = $language;
+		}
 		if ($cur_config_item[0] === 'o_base_url') {
-			global $language_filter;
 			$language = ($language_filter === '%') ? 'all' : $language_filter;
 			$cur_config_item[1] = $cur_config_item[1] . '/' . $language;
 		}
