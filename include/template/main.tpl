@@ -21,7 +21,7 @@
 
 			<img id="language" src="img/flags/{$country}.svg" style="height: 45px; left: -30px; position: absolute; top: -28px; transform: rotate(-20deg); width: 60px;">
 
-			<img src="img/amos2.png" style="height: 135px; right: 0; position: absolute; top: -12px; width: 640px;">
+			<img src="img/amos2.png" style="height: 118px; right: 0; position: absolute; top: -12px;">
 
 			<ul id="language" style="left: 370px; top: 10px; position: absolute;">
 				<li><a href="../fr">français</a></li>
