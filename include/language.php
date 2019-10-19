@@ -9,3 +9,7 @@ foreach (['all', 'fr', 'en'] as $language_filter) {
 if ($language_filter === 'all') {
 	$language_filter = '%';
 }
+
+if (strpos($_SERVER['REQUEST_URI'], '//')) {
+	header('Location: ' . str_replace('//', '/', $_SERVER['REQUEST_URI']));
+}
