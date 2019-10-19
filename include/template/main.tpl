@@ -19,7 +19,7 @@
 			<br>
 			<pun_desc>
 
-			<img id="language" src="img/flags/{$country}.svg" style="height: 45px; left: -30px; position: absolute; top: -28px; transform: rotate(-20deg); width: 60px;">
+			<img id="language" src="img/flags/{$country}.svg" style="height: 45px; left: -38px; position: absolute; top: -32px; transform: rotate(-20deg); width: 60px;">
 
 			<img src="img/amos2.png" style="height: 118px; right: 0; position: absolute; top: -12px;">
 
