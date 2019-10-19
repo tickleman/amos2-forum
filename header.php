@@ -58,10 +58,10 @@ foreach ($pun_includes as $cur_include)
 	ob_start();
 
 	$file_info = pathinfo($cur_include[1]);
-	
+
 	if (!in_array($file_info['extension'], array('php', 'php4', 'php5', 'inc', 'html', 'txt'))) // Allow some extensions
 		error(sprintf($lang_common['Pun include extension'], pun_htmlspecialchars($cur_include[0]), basename($tpl_file), pun_htmlspecialchars($file_info['extension'])));
-		
+
 	if (strpos($file_info['dirname'], '..') !== false) // Don't allow directory traversal
 		error(sprintf($lang_common['Pun include directory'], pun_htmlspecialchars($cur_include[0]), basename($tpl_file)));
 
@@ -181,6 +181,16 @@ $tpl_main = str_replace('<pun_page>', htmlspecialchars(basename($_SERVER['SCRIPT
 $tpl_main = str_replace('<pun_title>', '<h1><a href="index.php">'.pun_htmlspecialchars($pun_config['o_board_title']).'</a></h1>', $tpl_main);
 // END SUBST - <pun_title>
 
+// START SUBST - <pun_language>
+global $language_filter;
+switch ($language_filter) {
+	case '%':  $lang_file = 'eu'; break;
+	case 'en': $lang_file = 'gb'; break;
+	case 'fr': $lang_file = 'fr'; break;
+	default: $lang_file = 'gb';
+}
+$tpl_main = str_replace('{$country}', $lang_file, $tpl_main);
+// END SUBST - <pun_language>
 
 // START SUBST - <pun_desc>
 $tpl_main = str_replace('<pun_desc>', '<div id="brddesc">'.$pun_config['o_board_desc'].'</div>', $tpl_main);

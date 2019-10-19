@@ -19,6 +19,8 @@
 			<br>
 			<pun_desc>
 
+			<img id="language" src="img/flags/{$country}.svg" style="height: 45px; left: -30px; position: absolute; top: -28px; transform: rotate(-20deg); width: 60px;">
+
 			<ul id="language" style="left: 380px; top: 10px; position: absolute;">
 				<li><a href="../en">english</a></li>
 				<li><a href="../fr">french</a></li>
