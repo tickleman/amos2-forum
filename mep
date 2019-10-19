@@ -1,12 +1,12 @@
-rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep ./ root@next.pillot.fr:/home/amos2/www/forum/all/
-rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep ./ root@next.pillot.fr:/home/amos2/www/forum/en/
-rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep ./ root@next.pillot.fr:/home/amos2/www/forum/fr/
+rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep ./ root@amos2.fr:/home/amos2/www/forum/all/
+rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep ./ root@amos2.fr:/home/amos2/www/forum/en/
+rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep ./ root@amos2.fr:/home/amos2/www/forum/fr/
 
-rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/.htaccess root@next.pillot.fr:/home/amos2/www/forum/all/cache/
-rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/.htaccess root@next.pillot.fr:/home/amos2/www/forum/en/cache/
-rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/.htaccess root@next.pillot.fr:/home/amos2/www/forum/fr/cache/
-rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/index.html root@next.pillot.fr:/home/amos2/www/forum/all/cache/
-rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/index.html root@next.pillot.fr:/home/amos2/www/forum/en/cache/
-rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/index.html root@next.pillot.fr:/home/amos2/www/forum/fr/cache/
+rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/.htaccess root@amos2.fr:/home/amos2/www/forum/all/cache/
+rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/.htaccess root@amos2.fr:/home/amos2/www/forum/en/cache/
+rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/.htaccess root@amos2.fr:/home/amos2/www/forum/fr/cache/
+rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/index.html root@amos2.fr:/home/amos2/www/forum/all/cache/
+rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/index.html root@amos2.fr:/home/amos2/www/forum/en/cache/
+rsync -zaPq --delete --exclude=.git --exclude=.idea --exclude=/cache --exclude=/mep cache/index.html root@amos2.fr:/home/amos2/www/forum/fr/cache/
 
-rsh root@next.pillot.fr chown -R www-data.www-data /home/amos2/www/forum
+rsh root@amos2.fr chown -R www-data.www-data /home/amos2/www/forum
