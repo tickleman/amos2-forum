@@ -1,3 +1,17 @@
+
+# AMOS2 Forum Readme
+
+This is the code source of the AMOS 2 discussion forum, based on FluxBB.
+
+## What more than FluxBB ?
+
+Based on FluxBB, this forum is patched to add :
+
+- amos-2 design tuning
+- link to the imgbb image upload service
+- multi-lingual forums support : one forum per language sub-directory, but a common database
+- a patch to make passwords work (problems with the current FluxBB version)
+
 # FluxBB 1.5 Readme
 
 ## About
