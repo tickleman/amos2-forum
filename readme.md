@@ -12,7 +12,11 @@ Based on FluxBB, this forum is patched to add :
 - multi-lingual forums support : one forum per language sub-directory, but a common database
 - a patch to make passwords work (problems with the current FluxBB version)
 
-# FluxBB 1.5 Readme
+# FluxBB Installed extensions
+
+- New reCAPTCHA 2.0.0 : https://fluxbb.org/resources/mods/new-recaptcha/
+
+# FluxBB 1.5.11 Readme
 
 ## About
 
